@@ -24,6 +24,9 @@ jobs:
       - name: Building Application
         run: dotnet build
 
+      - name: Installing dotnet-coverage
+        run: dotnet tool install -g dotnet-coverage
+
       - name: Running Tests
         run: dotnet-coverage collect 'dotnet test' -f xml -o 'coverage.xml'
 
