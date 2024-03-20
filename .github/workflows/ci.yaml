@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Setup .NET
-      - uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '6.0.x'
           dotnet-quality: 'preview'
@@ -22,10 +22,10 @@ jobs:
         uses: docker/setup-buildx-action@v1
 
       - name: Building Application
-      - run: dotnet build
+        run: dotnet build
 
       - name: Running Tests
-      - run: dotnet-coverage collect 'dotnet test' -f xml -o 'coverage.xml'
+        run: dotnet-coverage collect 'dotnet test' -f xml -o 'coverage.xml'
 
       - name: Build docker image
         id: docker_build
