@@ -36,5 +36,12 @@ jobs:
         with:
           push: false
           tags: brunogomes99/ci-dotnet-test:latest
+      
+      - name: Install SonarCloud scanner
+        run: dotnet tool install -g dotnet-sonarscanner
 
-
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
