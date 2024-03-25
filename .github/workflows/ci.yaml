@@ -29,7 +29,6 @@ jobs:
 
       - name: Running Tests
         run: dotnet tool install --global JetBrains.dotCover.GlobalTool
-	#run: dotnet-coverage collect "dotnet test" -f xml -o "coverage.xml"
 
       - name: Build docker image
         id: docker_build
